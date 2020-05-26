@@ -1,8 +1,6 @@
 # [Building Applications in React and Redux](http://www.pluralsight.com/author/cory-house) from Pluralsight
 
 
-3. **Install Node Packages.** - `npm install`
-
 ### Production Dependencies
 
 | **Dependency**   | **Use**                                              |
