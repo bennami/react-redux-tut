@@ -110,7 +110,7 @@ function ManageCoursePage ({
     const mapDispatchToProps = {
             loadCourses: loadCourses,
             loadAuthors: loadAuthors,
-            saveCourse
+            saveCourse: saveCourse
     };
 
     //call to connect to redux

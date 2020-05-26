@@ -4,13 +4,13 @@ import {beginApiCall,apiCallError} from "./apiStatusActions";
 
 //action creators
 export function loadCourseSuccess(courses) {
-    return { type: types.LOAD_COURSES_SUCCESS, courses };
+    return { type: types.LOAD_COURSES_SUCCESS, courses:courses };
 }
 export function  createCoursesSuccess(course) {
-    return {type: types.CREATE_COURSE_SUCCESS, course}
+    return {type: types.CREATE_COURSE_SUCCESS, course:course}
 }
 export function updateCoursesSuccess(course) {
-    return {type: types.UPDATE_COURSE_SUCCESS, course}
+    return {type: types.UPDATE_COURSE_SUCCESS, course:course}
 
 }
 
@@ -18,9 +18,12 @@ export function updateCoursesSuccess(course) {
 export function loadCourses() {
     return function (dispatch) {
         dispatch(beginApiCall());
-        return courseApi.getCourses().then(courses => {
+        return courseApi
+            .getCourses()
+            .then(courses => {
                 dispatch(loadCourseSuccess(courses));
-            }).catch(error => {
+            })
+            .catch(error => {
                 dispatch(apiCallError(error));
                 throw error;
             });
@@ -28,6 +31,7 @@ export function loadCourses() {
 }
 
 export function saveCourse(course) {
+    //eslint-disable-next-line no-unused-vars
     return function (dispatch, getState) {
         dispatch(beginApiCall());
         return courseApi
