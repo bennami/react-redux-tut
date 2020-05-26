@@ -95,9 +95,8 @@ function mapDispatchToProps(dispatch) {
         actions: {
             loadCourses: bindActionCreators(courseActions.loadCourses, dispatch),
             loadAuthors: bindActionCreators(authorActions.loadAuthors, dispatch),
-/*
             deleteCourse: bindActionCreators(courseActions.deleteCourse, dispatch)
-*/
+
         }
     };
 }

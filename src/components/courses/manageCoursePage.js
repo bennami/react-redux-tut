@@ -40,16 +40,26 @@ function ManageCoursePage ({
         }
      },[props.course]);
 
-    function handleChange(e){
+    function handleChange(event){
         const{name, value} = event.target;
         setCourse(prevCourse =>({
         ...prevCourse,
         [name]: name === "authorId" ? parseInt(value, 10) : value
         }));
     }
+function formIsValid(){
+const{title,authorId,category} =course;
+const errors ={};
+if(!title) errors.title = "title is required";
+if(!authorId) errors.title = "authorId is required";
+if(!category) errors.title = "category is required";
+setErrors(errors);
+return Object.keys(errors).length === 0;
 
+}
     function handleSave(e){
         e.preventDefault();
+        if(!formIsValid())return
         setSaving(true);
         saveCourse(course).then(() => {
             toast.success('course saved');
